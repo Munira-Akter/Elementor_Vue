@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Elementor Pro</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <section class="elementor">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidebar">
+                        <h2>ELEMENTOR</h2>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Content</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Style</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Advance</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <ul>
+                                    <li><label>Before Title</label> <br><input v-model="beforetitle.beforetext" type="text"></li>
+                                    <br>
+                                    <li><label>Title</label> <br><input v-model="title.titletext" type="text"></li>
+                                    <br>
+                                    <li><label>Content</label> <br>
+                                        <textarea v-model="content.context" name="" id=""></textarea>
+
+                                    </li>
+
+                                    <li><label>Button</label> <br>
+                                        <input v-model="link.text" type="text"></input>
+                                        <label>Link</label> <br>
+                                        <input v-model="link.href" type="text"></input>
+                                    </li>
+                                    <br>
+                                    <div id="userActions">
+                                        <li><label>Feature Image <br> Drag & Drop</label> <br> <input @change="previewFiles" type="file" id="fileUpload"></li>
+
+                                        <li>
+                                            <img src="assets/media/choose.png" id="imgPrime" alt=""></li>
+                                    </div>
+
+
+                                </ul>
+                            </div>
+
+
+
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <ul class="style_ul">
+                                    <li id="before_title">Before Title
+                                        <ul>
+                                            <li class="form-group-inline"> <span id="color">Select Color</span> <input class="form-control" type="color" v-model="beforetitle.beforeColor"> </li>
+
+                                            <li class="form-group-inline"> <span>Font Family</span> <select v-model="beforetitle.beforeFamily" name="" id="">
+                                            <option value="Arial">Arial</option>
+                                            <option value="Impact">Impact</option>
+                                            <option value="Algerian">Algerian</option>
+                                            <option value="Elephant">Elephant</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Weight</span> <select v-model="beforetitle.beforeWeight" name="" id="">
+                                            <option value="400">400</option>
+                                            <option value="500">500</option>
+                                            <option value="600">600</option>
+                                            <option value="800">800</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Size</span> <input v-model="beforetitle.beforeSize" class="form-control" type="range"> </li>
+
+
+                                            <li class="form-group-inline"> <span>Text transform</span> <select v-model="beforetitle.beforeTransform" name="" id="">
+                                            <option value="Capitalize">Capitalize</option>
+                                            <option value="lowercase">lowercase</option>
+                                            <option value="Uppercase">Uppercase</option>
+                                            <option value="normal">Normal</option>
+                                        </select> </li>
+
+
+                                            <li class="form-group-inline"> <span>Font Style</span> <select v-model="beforetitle.beforeStyle" name="" id="">
+                                            <option value="italic">italic</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Oblique">Oblique</option>
+                                        </select></li>
+
+                                            <li class="form-group-inline"> <span>Text Decoration</span> <select v-model="beforetitle.beforeDecoration" name="" id="">
+                                            <option value="Underline">Underline</option>
+                                            <option value="Overline">Overline</option>
+                                            <option value="Line through">Line through</option>
+                                        </select></li>
+
+
+
+                                            <li class="form-group-inline"> <span>Line height</span> <input v-model="beforetitle.beforeLine" class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Letter Spacing</span> <input class="form-control" v-model="beforetitle.beforeSpacing" type="number"> </li>
+
+                                        </ul>
+                                    </li>
+                                    <li id="title">Title
+                                        <ul>
+                                            <li class="form-group-inline"> <span id="color">Select Color</span> <input class="form-control" type="color" v-model="title.titleColor"> </li>
+
+                                            <li class="form-group-inline"> <span>Font Family</span> <select v-model="title.titleFamily" name="" id="">
+                                            <option value="Arial">Arial</option>
+                                            <option value="Impact">Impact</option>
+                                            <option value="Algerian">Algerian</option>
+                                            <option value="Elephant">Elephant</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Weight</span> <select v-model="title.titleWeight" name="" id="">
+                                            <option value="400">400</option>
+                                            <option value="500">500</option>
+                                            <option value="600">600</option>
+                                            <option value="800">800</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Size</span> <input v-model="title.titleSize" class="form-control" type="range"> </li>
+
+
+                                            <li class="form-group-inline"> <span>Text transform</span> <select v-model="title.titleTransform" name="" id="">
+                                            <option value="Capitalize">Capitalize</option>
+                                            <option value="lowercase">lowercase</option>
+                                            <option value="Uppercase">Uppercase</option>
+                                            <option value="normal">Normal</option>
+                                        </select> </li>
+
+
+                                            <li class="form-group-inline"> <span>Font Style</span> <select v-model="title.titleStyle" name="" id="">
+                                            <option value="italic">italic</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Oblique">Oblique</option>
+                                        </select></li>
+
+                                            <li class="form-group-inline"> <span>Text Decoration</span> <select v-model="title.titleDecoration" name="" id="">
+                                            <option value="Underline">Underline</option>
+                                            <option value="Overline">Overline</option>
+                                            <option value="Line through">Line through</option>
+                                        </select></li>
+
+
+
+                                            <li class="form-group-inline"> <span>Line height</span> <input v-model="title.titleLine" class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Letter Spacing</span> <input class="form-control" v-model="title.titleSpacing" type="number"> </li>
+
+                                        </ul>
+                                    </li>
+                                    <li id="content">Content
+                                        <ul>
+                                            <li class="form-group-inline"> <span id="color">Select Color</span> <input class="form-control" type="color" v-model="content.conColor"> </li>
+
+                                            <li class="form-group-inline"> <span>Font Family</span> <select v-model="content.conFamily" name="" id="">
+                                            <option value="Arial">Arial</option>
+                                            <option value="Impact">Impact</option>
+                                            <option value="Algerian">Algerian</option>
+                                            <option value="Elephant">Elephant</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Weight</span> <select v-model="content.conWeight" name="" id="">
+                                            <option value="400">400</option>
+                                            <option value="500">500</option>
+                                            <option value="600">600</option>
+                                            <option value="800">800</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Size</span> <input v-model="content.conSize" class="form-control" type="range"> </li>
+
+
+                                            <li class="form-group-inline"> <span>Text transform</span> <select v-model="content.conTransform" name="" id="">
+                                            <option value="Capitalize">Capitalize</option>
+                                            <option value="lowercase">lowercase</option>
+                                            <option value="Uppercase">Uppercase</option>
+                                            <option value="normal">Normal</option>
+                                        </select> </li>
+
+
+                                            <li class="form-group-inline"> <span>Font Style</span> <select v-model="content.conStyle" name="" id="">
+                                            <option value="italic">italic</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Oblique">Oblique</option>
+                                        </select></li>
+
+                                            <li class="form-group-inline"> <span>Text Decoration</span> <select v-model="content.conDecoration" name="" id="">
+                                            <option value="Underline">Underline</option>
+                                            <option value="Overline">Overline</option>
+                                            <option value="Line through">Line through</option>
+                                        </select></li>
+
+
+
+                                            <li class="form-group-inline"> <span>Line height</span> <input v-model="content.conLine" class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Letter Spacing</span> <input class="form-control" v-model="content.conSpacing" type="number"> </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li id="content">Link
+                                        <ul>
+                                            <li class="form-group-inline"> <span id="color">Select Color</span> <input class="form-control" type="color" v-model="link.conColor"> </li>
+
+                                            <li class="form-group-inline"> <span>Font Family</span> <select v-model="link.conFamily" name="" id="">
+                                            <option value="Arial">Arial</option>
+                                            <option value="Impact">Impact</option>
+                                            <option value="Algerian">Algerian</option>
+                                            <option value="Elephant">Elephant</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Weight</span> <select v-model="link.conWeight" name="" id="">
+                                            <option value="400">400</option>
+                                            <option value="500">500</option>
+                                            <option value="600">600</option>
+                                            <option value="800">800</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Font Size</span> <input v-model="link.conSize" class="form-control" type="range"> </li>
+
+
+                                            <li class="form-group-inline"> <span>Text transform</span> <select v-model="link.conTransform" name="" id="">
+                                            <option value="Capitalize">Capitalize</option>
+                                            <option value="lowercase">lowercase</option>
+                                            <option value="Uppercase">Uppercase</option>
+                                            <option value="normal">Normal</option>
+                                        </select> </li>
+
+                                            <li class="form-group-inline"> <span>Text transform</span> <select v-model="link.btncolor" name="" id="">
+                                            <option value="primary">primary</option>
+                                            <option value="success">success</option>
+                                            <option value="info">info</option>
+                                            <option value="danger">danger</option>
+                                        </select> </li>
+
+
+
+                                            <li class="form-group-inline"> <span>Font Style</span> <select v-model="link.conStyle" name="" id="">
+                                            <option value="italic">italic</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Oblique">Oblique</option>
+                                        </select></li>
+
+                                            <li class="form-group-inline"> <span>Text Decoration</span> <select v-model="link.conDecoration" name="" id="">
+                                            <option value="Underline">Underline</option>
+                                            <option value="Overline">Overline</option>
+                                            <option value="Line through">Line through</option>
+                                        </select></li>
+
+
+
+                                            <li class="form-group-inline"> <span>Line height</span> <input v-model="link.conLine" class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Letter Spacing</span> <input class="form-control" v-model="link.conSpacing" type="number"> </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li id="image">Image
+                                        <ul>
+                                            <li class="form-group-inline"> <span>Image height</span> <input class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Image Width</span> <input class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Border Width</span> <input class="form-control" type="number" v-model="featureimg.borderwidth"> </li>
+
+                                            <li class="form-group-inline"> <span id="color">Border Color</span> <input class="form-control" type="color" v-model="featureimg.bordercolor"> </li>
+
+                                            <li class="form-group-inline"> <span>Border Style</span> <select v-model="featureimg.borderstyle" name="" id="">
+                                            <option value="Solid">Solid</option>
+                                            <option value="Dotted">Dotted</option>
+                                            <option value="Dashed">Dashed</option>
+                                        </select></li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+                                <ul class="advance_ul">
+                                    <li id="before_title">Before Title
+                                        <ul>
+                                            <li class="form-group-inline"> <span>Margin</span>
+                                                <input v-model="beforetitle.beforemargintop" class="form-control" type="number">
+                                                <input v-model="beforetitle.beforemarginright" class="form-control" type="number">
+                                                <input v-model="beforetitle.beforemarginbottom" class="form-control" type="number">
+                                                <input v-model="beforetitle.beforemarginleft" class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Padding</span>
+                                                <input v-model="beforetitle.beforepaddingtop" class="form-control" type="number">
+
+                                                <input v-model="beforetitle.beforepaddingright" class="form-control" type="number">
+
+                                                <input v-model="beforetitle.beforepaddingbottom" class="form-control" type="number">
+
+                                                <input v-model="beforetitle.beforepaddingleft" class="form-control" type="number">
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li id="title">Title
+                                        <ul>
+                                            <li class="form-group-inline"> <span>Margin</span> <input class="form-control" type="number"> <input class="form-control" type="number"><input class="form-control" type="number"><input class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Padding</span> <input class="form-control" type="number"> <input class="form-control" type="number"><input class="form-control" type="number"><input class="form-control" type="number"> </li>
+
+                                        </ul>
+                                    </li>
+                                    <li id="content">Content
+                                        <ul>
+                                            <li class="form-group-inline"> <span>Margin</span> <input class="form-control" type="number"> <input class="form-control" type="number"><input class="form-control" type="number"><input class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Padding</span> <input class="form-control" type="number"> <input class="form-control" type="number"><input class="form-control" type="number"><input class="form-control" type="number"> </li>
+
+                                        </ul>
+                                    </li>
+                                    <li id="image">Image
+                                        <ul>
+                                            <li class="form-group-inline"> <span>Margin</span> <input class="form-control" type="number"> <input class="form-control" type="number"><input class="form-control" type="number"><input class="form-control" type="number"> </li>
+
+                                            <li class="form-group-inline"> <span>Padding</span> <input class="form-control" type="number"> <input class="form-control" type="number"><input class="form-control" type="number"><input class="form-control" type="number"> </li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9 text-content">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="'assets/media/choose.png" :style="'height: 400px; width: 500px; border:' + featureimg.borderwidth + 'px ' + featureimg.borderstyle + ' ' + featureimg.bordercolor + '; border-radius: 10px; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;'"
+                                alt="">
+                        </div>
+                        <div class="col-md-5 pt-5">
+                            <p v-bind:style=" 'font-size:' + beforetitle.beforeSize + 'px; font-family:' +beforetitle.beforeFamily+ '; font-weight:' +beforetitle.beforeWeight + '; color :' +beforetitle.beforeColor+ '; text-transform:' +beforetitle.beforeTransform + '; font-style:' + beforetitle.beforeStyle + '; text-decoration:' + beforetitle.beforeDecoration + '; line-height:' + beforetitle.beforeLine + '; letter-spacing:' +beforetitle.beforeSpacing+ '; margin:' + beforetitle.beforemargintop + 'px ' + beforetitle.beforemarginright + 'px ' + beforetitle.beforemarginbottom + 'px ' + beforetitle.beforemarginleft + 'px !important ; padding:' + beforetitle.beforepaddingtop + 'px ' + beforetitle.beforepaddingright + 'px ' + beforetitle.beforepaddingbottom + 'px ' + beforetitle.beforepaddingleft + 'px;' ">{{ beforetitle.beforetext }}</p>
+
+
+
+                            <h1 v-bind:style=" 'font-size:' + title.titleSize + 'px; font-family:' +title.titleFamily+ '; font-weight:' +title.titleWeight + '; color :' +title.titleColor+ '; text-transform:' +title.titleTransform + '; font-style:' + title.titleStyle + '; text-decoration:' + title.titleDecoration + '; line-height:' + title.titleLine + '; letter-spacing:' +title.titleSpacing+ '; margin:' + title.titlemargintop + 'px ' + title.titlemarginright + 'px ' + title.titlemarginbottom + 'px ' + title.titlemarginleft + 'px; padding:' + title.titlepaddingtop + 'px ' + title.titlepaddingright + 'px ' +title.titlepaddingbottom + 'px ' + title.titlepaddingleft + 'px;' ">{{ title.titletext }}</h1>
+
+
+
+                            <p v-bind:style=" 'font-size:' + content.conSize + 'px; font-family:' +content.conFamily+ '; font-weight:' +content.conWeight + '; color :' +content.conColor+ '; text-transform:' +content.conTransform+ '; font-style:' + content.conStyle + '; text-decoration:' + content.conDecoration + '; line-height:' + content.conLine + '; letter-spacing:' +content.conSpacing+ '; margin:' + content.conmargintop + 'px ' + content.conmarginright + 'px ' + content.conmarginbottom + 'px ' + content.conmarginleft + 'px; padding:' + content.conpaddingtop + 'px ' + content.titlepaddingright + 'px ' +content.titlepaddingbottom + 'px ' + content.conpaddingleft + 'px;' ">{{ content.context }}</p>
+
+
+
+                            <a v-bind:style=" 'font-size:' + link.conSize + 'px; font-family:' +link.conFamily+ '; font-weight:' +link.conWeight + '; color :' +link.conColor+ '; text-transform:' +link.conTransform+ '; font-style:' + link.conStyle + '; text-decoration:' + link.conDecoration + '; line-height:' + link.conLine + '; letter-spacing:' +link.conSpacing+ '; margin:' + link.conmargintop + 'px ' + link.conmarginright + 'px ' + link.conmarginbottom + 'px ' + link.conmarginleft + 'px; padding:' + link.conpaddingtop + 'px ' + link.titlepaddingright + 'px ' +link.titlepaddingbottom + 'px ' + link.conpaddingleft + 'px;' "
+                                :class="' text-light btn btn-sm btn-' +link.btncolor" :href="link.href">{{ link.text }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="assets/js/file.js"></script>
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/vue-router.js"></script>
+
+    <script>
+        let elementor = new Vue({
+            el: '.elementor',
+            data: {
+                beforetitle: {
+                    beforetext: 'This is Before Heading',
+                    beforeColor: '#777',
+                    beforeFamily: 'Impact',
+                    beforeWeight: '400',
+                    beforeSize: '14',
+                    beforeTransform: 'Capitalize',
+                    beforeStyle: 'normal',
+                    beforeLine: null,
+                    beforeSpacing: null,
+                    beforeDecoration: 'none',
+                    beforepaddingbottom: 10,
+                    beforepaddingtop: 10,
+                    beforepaddingright: 10,
+                    beforepaddingleft: 0,
+                    beforemarginbottom: 10,
+                    beforemargintop: 10,
+                    beforemarginright: 10,
+                    beforemarginleft: 0,
+
+                },
+                title: {
+                    titletext: 'this is heading',
+                    titleColor: '#777',
+                    titleFamily: 'Impact',
+                    titleWeight: '400',
+                    titleSize: '44',
+                    titleTransform: 'Capitalize',
+                    titleStyle: 'normal',
+                    titleLine: null,
+                    titleSpacing: null,
+                    titleDecoration: 'none',
+                    titlepaddingbottom: 10,
+                    titlepaddingtop: null,
+                    titlepaddingright: null,
+                    titlepaddingleft: null,
+                    titlemarginbottom: null,
+                    titlemargintop: null,
+                    titlemarginright: null,
+                    titlemarginleft: null,
+                },
+                content: {
+                    context: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, dolore perspiciatis atque optio a asperiores. Magni nam, officiis cupiditate velit, debitis error voluptas autem totam fugit rem animi nulla tempora.',
+                    conColor: '#777',
+                    conFamily: 'Arial',
+                    conWeight: '400',
+                    conSize: '14',
+                    conTransform: 'Capitalize',
+                    conStyle: 'normal',
+                    conLine: 2,
+                    conSpacing: null,
+                    conDecoration: 'none',
+                    conpaddingbottom: 20,
+                    conpaddingtop: null,
+                    conpaddingright: null,
+                    conpaddingleft: null,
+                    conmarginbottom: null,
+                    conmargintop: null,
+                    conmarginright: null,
+                    conmarginleft: null,
+                },
+
+                link: {
+                    text: 'Click Here',
+                    href: 'https://facebook.com',
+                    conColor: '#777',
+                    conFamily: 'Arial',
+                    conWeight: '400',
+                    conSize: '14',
+                    conTransform: 'Capitalize',
+                    conStyle: 'normal',
+                    conLine: 2,
+                    conSpacing: null,
+                    conDecoration: 'none',
+                    conpaddingbottom: null,
+                    conpaddingtop: null,
+                    conpaddingright: 20,
+                    conpaddingleft: 20,
+                    conmarginbottom: null,
+                    conmargintop: null,
+                    conmarginright: null,
+                    conmarginleft: null,
+                    btncolor: 'primary'
+                },
+
+
+                featureimg: {
+                    src: null,
+                    borderwidth: null,
+                    bordercolor: '#777',
+                    brderstyle: 'solid',
+                }
+
+
+            },
+
+            methods: {
+                previewFiles(event) {
+                    this.selectedFile = event.target.files[0]
+                }
+            },
+        });
+    </script>
+
+
+</body>
+
+</html>
